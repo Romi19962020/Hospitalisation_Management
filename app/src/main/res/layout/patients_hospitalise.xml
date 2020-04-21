@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom"
+        android:id="@+id/nomPatHosp"
+        android:textColor="@color/colorW"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp" />
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/nomPatHosp"
+        android:layout_marginLeft="60dp"
+        android:id="@+id/admission"
+        android:background="@drawable/ic_font_download_black_24dp"/>
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/admission"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/ic_create_new_folder_black_24dp"
+        android:id="@+id/dm"/>
+
+</RelativeLayout>

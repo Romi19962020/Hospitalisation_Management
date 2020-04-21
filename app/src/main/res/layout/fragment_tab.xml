@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TabFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/cons"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_centerVertical="true" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:id="@+id/hosp"
+        android:background="@drawable/hosp"
+        android:layout_toRightOf="@id/cons"
+        android:layout_centerInParent="true" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:id="@+id/hj"
+        android:background="@drawable/hj"
+        android:layout_toRightOf="@+id/hosp"
+        android:layout_centerVertical="true" />
+    <Button
+        android:id="@+id/had"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_toRightOf="@id/hj"
+        android:layout_centerVertical="true"
+        android:background="@drawable/home"/>
+
+
+</RelativeLayout>

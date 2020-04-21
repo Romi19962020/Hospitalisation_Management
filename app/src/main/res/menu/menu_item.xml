@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/tab"
+        android:title="Tableau de bord"
+        android:icon="@drawable/ic_dashboard_black_24dp"/>
+    <item
+        android:id="@+id/agenda"
+        android:title="Liste des rendez-vous"
+        android:icon="@drawable/baseline_today_black_18dp"/>
+    <item
+        android:id="@+id/cons"
+        android:title="Consultation"
+        android:icon="@drawable/outline_local_hospital_black_18dp"/>
+    <item
+        android:id="@+id/hosp"
+        android:title="Hospitalisation"
+        android:icon="@drawable/outline_hotel_black_18dp"
+        />
+    <item
+        android:id="@+id/hj"
+        android:title="Hopital de jour"
+        android:icon="@drawable/outline_local_convenience_store_black_18dp"/>
+    <item
+        android:id="@+id/had"
+        android:title="Hospitalisation à domicile"
+        android:icon="@drawable/outline_home_work_black_18dp"/>
+    <item
+        android:id="@+id/dec"
+        android:title="Se déconnecter"
+
+        />
+
+
+
+
+</menu>

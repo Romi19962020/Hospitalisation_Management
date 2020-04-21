@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConsultationFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <AutoCompleteTextView
+            android:id="@+id/nomCons"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Nom"
+            android:textColor="@color/colorEdit"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="15dp" />
+
+        <AutoCompleteTextView
+            android:id="@+id/prenomCons"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Prénom"
+            android:textColor="@color/colorEdit"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="15dp" />
+
+        <EditText
+            android:id="@+id/datenaissCons"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:layout_marginRight="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="@color/colorEdit"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:hint="Date de naissance"
+            android:inputType="date"
+            android:layout_marginLeft="24dp" />
+        <EditText
+            android:id="@+id/ageCons"
+            android:textColor="@color/colorEdit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:ems="10"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:hint="Age"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="15dp" />
+
+
+        <EditText
+            android:textColor="@color/colorEdit"
+            android:id="@+id/motifCons"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_bg"
+            android:ems="10"
+            android:layout_marginEnd="15dp"
+            android:hint="Motif de consultation"
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="15dp" />
+
+        <EditText
+            android:textColor="@color/colorEdit"
+            android:id="@+id/diagCons"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:ems="10"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:hint="Diagnostic"
+            android:inputType="textMultiLine"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:id="@+id/decision"
+            android:text="Décision du médecin"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/colorW"
+            android:layout_marginLeft="24dp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="-20dp"
+            android:layout_marginLeft="180dp"></Spinner>
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_corners"
+            android:text="Enregistrer"
+            android:id="@+id/enregistrerCons"
+            android:textColor="@color/colorWB" />
+
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-49dp"
+            android:background="@drawable/button_corners"
+            android:text="Voir la liste des consultations"
+            android:textColor="@color/colorWB"
+            android:layout_marginLeft="180dp" />
+
+    </LinearLayout>
+</ScrollView>
