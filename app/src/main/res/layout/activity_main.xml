@@ -1,117 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBack"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        >
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher_round"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Our app"
-            android:textStyle="bold"
-            android:textColor="@color/colorW"
-            android:paddingTop="15dp"
-            android:layout_gravity="center"/>
-
-        <EditText
-            android:id="@+id/mail"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/edit_bg"
-            android:drawableStart="@drawable/outline_portrait_black_18dp"
-            android:drawableLeft="@drawable/outline_portrait_black_18dp"
-            android:drawablePadding="10dp"
-            android:hint="Username"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="24dp"></EditText>
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="45dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
-            android:drawableStart="@drawable/outline_vpn_key_black_18dp"
-            android:drawableLeft="@drawable/outline_vpn_key_black_18dp"
-            android:drawablePadding="10dp"
-            android:hint="password"
-            android:background="@drawable/edit_bg"
-            android:inputType="textPassword"
-            android:layout_marginLeft="45dp"
-            android:layout_marginRight="24dp"></EditText>
-
-        <TextView
-            android:id="@+id/mdpO"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="20dp"
-            android:padding="10dp"
-            android:text="Mot De Passe Oublié ?"
-            android:textColor="@color/colorPrimary" />
-
-        <!--ProgressBar
-             android:id="@+id/loading"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center"
-             android:layout_marginStart="32dp"
-             android:layout_marginTop="64dp"
-             android:layout_marginEnd="32dp"
-             android:layout_marginBottom="64dp"
-             android:visibility="gone"
-             app:layout_constraintBottom_toBottomOf="parent"
-             app:layout_constraintEnd_toEndOf="@+id/password"
-             app:layout_constraintStart_toStartOf="@+id/password"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintVertical_bias="0.3" -->
-
-        <Button
-            android:id="@+id/login"
-
-            android:layout_width="240dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="75dp"
-            android:layout_marginLeft="45dp"
+            android:layout_height="220dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="30dp"
-            android:background="@drawable/button_corners"
-            android:text="Connecter-Vous"
-            android:textColor="@color/colorWB"></Button>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:paddingStart="30dp"
-            android:paddingLeft="20dp"
-            android:text="Vous n'avez pas un compte? Inscrivez vous"
-            android:id="@+id/insc"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimary"></TextView>
-
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginBottom="120dp"
+            android:padding="15dp"
+            android:src="@mipmap/ic_launcher_round"></ImageView>
 
     </LinearLayout>
-
-
-</ScrollView>
+</RelativeLayout>

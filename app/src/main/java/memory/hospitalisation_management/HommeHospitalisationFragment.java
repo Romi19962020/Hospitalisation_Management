@@ -1,15 +1,20 @@
 package memory.hospitalisation_management;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +24,14 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class HommeHospitalisationFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+//ArrayAdapter<String> arrayAdapter;
+/*Intent  intent;
+
+    public Intent getIntent() {
+        return intent;
+    }
+    String nomConsultation=intent.getExtras().getString("Nom");*/
+
     public HommeHospitalisationFragment() {
         // Required empty public constructor
     }
@@ -29,32 +42,87 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_homme_hospitalisation, container, false);
+
+
+
         Spinner spinner= view.findViewById(R.id.spinnerHosp);
         final ListView lst=view.findViewById(R.id.lstvw);
-        final ListView lsthosp=view.findViewById(R.id.listHosp);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getActivity(),R.array.salle_hosp,android.R.layout.simple_spinner_item);
+
+
+        final ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(getActivity(),R.array.salle_hosp,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        List<DetailHospitalisation> list = getListData();
+        final ListView lsthosp=view.findViewById(R.id.listHosp);
+
+        final List<DetailHospitalisation> list = getListData();
         lst.setAdapter(new CustomListAdapter(getActivity(),list));
 
+        String nomConsultation = getArguments().getString("YourKey");
+
         List<Patient_Hospitalisaion> listhosp = getListPatient();
+
+        Patient_Hospitalisaion p= new Patient_Hospitalisaion(""+nomConsultation,null,null);
+        listhosp.add(p);
         lsthosp.setAdapter(new PatientHospAdapter(getActivity(),listhosp));
 
 
+
+
+        Button btn= view.findViewById(R.id.ajoutPatient);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder alerte = new AlertDialog.Builder(getActivity());
+                View alerteView = getLayoutInflater().inflate(R.layout.dialog_ajout_patient_hosp, null);
+                final EditText nom = alerteView.findViewById(R.id.nom);
+                EditText prenom = alerteView.findViewById(R.id.prenom);
+                EditText salle = alerteView.findViewById(R.id.salle);
+                EditText lit = alerteView.findViewById(R.id.lit);
+                Button valider= alerteView.findViewById(R.id.validerPatient);
+                Button exit= alerteView.findViewById(R.id.exitPatient);
+                alerte.setView(alerteView);
+                final AlertDialog dialog = alerte.create();
+                dialog.setTitle("Ajout Patient");
+
+                valider.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       /* if (!nom.getText().toString().isEmpty()) {
+                            // Instead of et.getText(), call mUser.getText()
+                           String result = nom.getText().toString();
+                            list.add(result);
+                            adapter.notifyDataSetChanged();
+                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                            //dismiss dialog once item is added successfully
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(getActivity(), "Error pls Write", Toast.LENGTH_SHORT).show();
+                        }*/
+                    }
+                });
+                exit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
+
+
+            }
+        });
         return view;
 
     }
+
     private  List<DetailHospitalisation> getListData() {
         List<DetailHospitalisation> list = new ArrayList<DetailHospitalisation>();
         DetailHospitalisation info1 = new DetailHospitalisation("Lit 1","Patient 1");
         DetailHospitalisation info2 = new DetailHospitalisation("Lit 2","Patient 2");
         DetailHospitalisation info3 = new DetailHospitalisation("Lit 3","");
         DetailHospitalisation info4 = new DetailHospitalisation("Lit 4","");
-
-
 
         list.add(info1);
         list.add(info2);
@@ -64,18 +132,15 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
         return list;
     }
     private  List<Patient_Hospitalisaion> getListPatient() {
+       // Bundle bundle= getArguments()
+
         List<Patient_Hospitalisaion> listhosp = new ArrayList<Patient_Hospitalisaion>();
         Patient_Hospitalisaion pat1 = new Patient_Hospitalisaion("Patient 1",null,null);
         Patient_Hospitalisaion pat2 = new Patient_Hospitalisaion("Patient 2",null,null);
-        Patient_Hospitalisaion pat3 = new Patient_Hospitalisaion("Patient 3",null,null);
-        Patient_Hospitalisaion pat4 = new Patient_Hospitalisaion("Patient 4",null,null);
-
-
 
         listhosp.add(pat1);
         listhosp.add(pat2);
-        listhosp.add(pat3);
-        listhosp.add(pat4);
+      //  arrayAdapter.notifyDataSetChanged();
 
         return listhosp;
     }

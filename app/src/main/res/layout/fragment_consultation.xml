@@ -18,7 +18,7 @@
             android:layout_marginEnd="15dp"
             android:background="@drawable/edit_bg"
             android:hint="Nom"
-            android:textColor="@color/colorEdit"
+            android:textColor="@color/colorW"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="15dp" />
 
@@ -31,7 +31,7 @@
             android:layout_marginEnd="15dp"
             android:background="@drawable/edit_bg"
             android:hint="Prénom"
-            android:textColor="@color/colorEdit"
+            android:textColor="@color/colorW"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="15dp" />
 
@@ -42,7 +42,7 @@
             android:ems="10"
             android:layout_marginRight="15dp"
             android:layout_marginEnd="15dp"
-            android:textColor="@color/colorEdit"
+            android:textColor="@color/colorW"
             android:layout_marginStart="10dp"
             android:background="@drawable/edit_bg"
             android:layout_marginTop="10dp"
@@ -51,7 +51,7 @@
             android:layout_marginLeft="24dp" />
         <EditText
             android:id="@+id/ageCons"
-            android:textColor="@color/colorEdit"
+            android:textColor="@color/colorW"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
@@ -65,7 +65,7 @@
 
 
         <EditText
-            android:textColor="@color/colorEdit"
+            android:textColor="@color/colorW"
             android:id="@+id/motifCons"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -80,7 +80,7 @@
             android:layout_marginRight="15dp" />
 
         <EditText
-            android:textColor="@color/colorEdit"
+            android:textColor="@color/colorW"
             android:id="@+id/diagCons"
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -93,24 +93,55 @@
             android:inputType="textMultiLine"
             android:layout_marginLeft="24dp"
             android:layout_marginRight="15dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:id="@+id/decision"
-            android:text="Décision du médecin"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/colorW"
-            android:layout_marginLeft="24dp" />
+            android:text="Décision:"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorW" />
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="-20dp"
-            android:layout_marginLeft="180dp"></Spinner>
+            <CheckBox
+                android:id="@+id/consDecision"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/decision"
+                android:text="Consultation" />
+
+            <CheckBox
+                android:id="@+id/hospDecision"
+                android:layout_width="128dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/decision"
+                android:layout_toRightOf="@id/consDecision"
+                android:text="Hospitalisation"
+                android:layout_marginLeft="-2dp"/>
+
+            <CheckBox
+                android:id="@+id/hjDecision"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/decision"
+                android:layout_marginLeft="-1dp"
+                android:layout_toRightOf="@+id/hospDecision"
+                android:text="HJ" />
+
+            <CheckBox
+                android:id="@+id/hadDecision"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/decision"
+                android:layout_toRightOf="@+id/hjDecision"
+                android:text="HAD" />
+
+        </RelativeLayout>
 
         <Button
             android:layout_width="160dp"
