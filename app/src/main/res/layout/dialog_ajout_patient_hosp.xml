@@ -2,66 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
-        android:id="@+id/nom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nom"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp" />
-    <EditText
-        android:id="@+id/prenom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Prenom"
-        android:layout_below="@+id/nom"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"/>
-    <EditText
-        android:id="@+id/salle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/prenom"
-        android:hint="Salle"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"/>
-    <EditText
-        android:id="@+id/lit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lit"
-        android:inputType="number"
-        android:layout_below="@+id/salle"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lit"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-        android:text="Valider"
-        android:background="@drawable/button_corners"
-        android:id="@+id/validerPatient" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/lit"
-        android:layout_toRightOf="@+id/validerPatient"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="80dp"
-        android:text="Exit"
-        android:background="@drawable/button_corners"
-        android:id="@+id/exitPatient"/>
-
-
+   <ListView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:id="@+id/listePatient"></ListView>
 
 
 </RelativeLayout>

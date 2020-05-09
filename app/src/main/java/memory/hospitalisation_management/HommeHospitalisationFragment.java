@@ -1,6 +1,7 @@
 package memory.hospitalisation_management;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,8 +17,19 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
+import static memory.hospitalisation_management.Constantns.SERVER_URL;
 
 
 /**
@@ -31,7 +43,7 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
         return intent;
     }
     String nomConsultation=intent.getExtras().getString("Nom");*/
-
+private ListView lsthosp;
     public HommeHospitalisationFragment() {
         // Required empty public constructor
     }
@@ -54,19 +66,10 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        final ListView lsthosp=view.findViewById(R.id.listHosp);
-
+        lsthosp=view.findViewById(R.id.listHosp);
+        getPatientsFromServer();
         final List<DetailHospitalisation> list = getListData();
         lst.setAdapter(new CustomListAdapter(getActivity(),list));
-
-        String nomConsultation = getArguments().getString("YourKey");
-
-        List<Patient_Hospitalisaion> listhosp = getListPatient();
-
-        Patient_Hospitalisaion p= new Patient_Hospitalisaion(""+nomConsultation,null,null);
-        listhosp.add(p);
-        lsthosp.setAdapter(new PatientHospAdapter(getActivity(),listhosp));
-
 
 
 
@@ -76,38 +79,12 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
             public void onClick(View view) {
                 AlertDialog.Builder alerte = new AlertDialog.Builder(getActivity());
                 View alerteView = getLayoutInflater().inflate(R.layout.dialog_ajout_patient_hosp, null);
-                final EditText nom = alerteView.findViewById(R.id.nom);
-                EditText prenom = alerteView.findViewById(R.id.prenom);
-                EditText salle = alerteView.findViewById(R.id.salle);
-                EditText lit = alerteView.findViewById(R.id.lit);
-                Button valider= alerteView.findViewById(R.id.validerPatient);
-                Button exit= alerteView.findViewById(R.id.exitPatient);
+               ListView listePatient= alerteView.findViewById(R.id.listePatient);
                 alerte.setView(alerteView);
                 final AlertDialog dialog = alerte.create();
                 dialog.setTitle("Ajout Patient");
 
-                valider.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                       /* if (!nom.getText().toString().isEmpty()) {
-                            // Instead of et.getText(), call mUser.getText()
-                           String result = nom.getText().toString();
-                            list.add(result);
-                            adapter.notifyDataSetChanged();
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //dismiss dialog once item is added successfully
-                            dialog.dismiss();
-                        } else {
-                            Toast.makeText(getActivity(), "Error pls Write", Toast.LENGTH_SHORT).show();
-                        }*/
-                    }
-                });
-                exit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
+
                 dialog.show();
 
 
@@ -131,7 +108,7 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
 
         return list;
     }
-    private  List<Patient_Hospitalisaion> getListPatient() {
+/*    private  List<Patient_Hospitalisaion> getListPatient() {
        // Bundle bundle= getArguments()
 
         List<Patient_Hospitalisaion> listhosp = new ArrayList<Patient_Hospitalisaion>();
@@ -140,13 +117,30 @@ public class HommeHospitalisationFragment extends Fragment implements AdapterVie
 
         listhosp.add(pat1);
         listhosp.add(pat2);
-      //  arrayAdapter.notifyDataSetChanged();
 
         return listhosp;
-    }
+    }*/
 
 
-
+private void getPatientsFromServer(){
+    final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+    progressDialog.setMessage("Wait please ...");
+    progressDialog.setCancelable(false);
+    Ion.with(getActivity())
+            .load("GET",SERVER_URL+"/Patients")
+            .asJsonArray()
+            .setCallback(new FutureCallback<JsonArray>() {
+                @Override
+                public void onCompleted(Exception e, JsonArray result) {
+                    // do stuff with the result or error
+                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+                    Type typeOfT = new TypeToken<List<Patient>>(){}.getType();
+                    List<Patient>patients = gson.fromJson(result, typeOfT);
+                    lsthosp.setAdapter(new PatientHospAdapter(getActivity(),patients));
+                    progressDialog.dismiss();
+                }
+            });
+}
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 

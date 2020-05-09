@@ -11,24 +11,24 @@ import android.widget.TextView;
 import java.util.List;
 
 public class PatientHospAdapter extends BaseAdapter{
-        private List<Patient_Hospitalisaion> listPatients;
+        private List<Patient> patients;
         private LayoutInflater layoutInflater;
         private Context context;
 
-        public PatientHospAdapter(Context aContext,  List<Patient_Hospitalisaion> listData) {
+        public PatientHospAdapter(Context aContext,  List<Patient> patients) {
             this.context = aContext;
-            this.listPatients = listData;
+            this.patients = patients;
             layoutInflater = LayoutInflater.from(aContext);
         }
 
         @Override
         public int getCount() {
-            return listPatients.size();
+            return patients.size();
         }
 
         @Override
         public Object getItem(int position) {
-            return listPatients.get(position);
+            return patients.get(position);
         }
 
         @Override
@@ -50,10 +50,10 @@ public class PatientHospAdapter extends BaseAdapter{
                 holder = (PatientHospAdapter.ViewHolder) convertView.getTag();
             }
 
-            Patient_Hospitalisaion pat = this.listPatients.get(position);
-            holder.nomPatHosp.setText("" + pat.getNom());
-            holder.admission.setTag(pat.admission);
-            holder.dm.setTag(pat.dm);
+            Patient patient = patients.get(position);
+            holder.nomPatHosp.setText("" + patient.getFirstName()+" "+patient.getLastName());
+//            holder.admission.setTag(pat.admission);
+//            holder.dm.setTag(pat.dm);
 
 
             return convertView;
