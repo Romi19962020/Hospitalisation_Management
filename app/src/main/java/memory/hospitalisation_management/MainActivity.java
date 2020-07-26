@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private static int SPLASH_TIME_OUT=2000;
+    private static int SPLASH_TIME_OUT=1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

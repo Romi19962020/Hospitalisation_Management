@@ -41,7 +41,7 @@ public class CustomListAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.item_hospitalisation, null);
             holder = new ViewHolder();
             holder.lit = (TextView) convertView.findViewById(R.id.litHosp);
-            holder.nom = (TextView) convertView.findViewById(R.id.nomHosp);
+           // holder.nom = (TextView) convertView.findViewById(R.id.nomHosp);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -49,7 +49,7 @@ public class CustomListAdapter extends BaseAdapter {
 
         DetailHospitalisation detail = this.listData.get(position);
         holder.lit.setText(detail.getLit());
-        holder.nom.setText(detail.getNom());
+      //  holder.nom.setText(detail.getNom());
 
         return convertView;
     }
@@ -57,6 +57,6 @@ public class CustomListAdapter extends BaseAdapter {
 
     static class ViewHolder {
         TextView lit;
-        TextView nom;
+      //  TextView nom;
     }
 }

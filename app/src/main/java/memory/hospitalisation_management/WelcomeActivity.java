@@ -29,6 +29,10 @@ public class WelcomeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupDrawerContent(navi);
 
+        PatientsFragment patientsFragment=new PatientsFragment();
+        FragmentManager fm= getSupportFragmentManager();
+        fm.beginTransaction().add(R.id.contentFl,patientsFragment).commit();
+
     }
 
     private void setActionBarTitle(String Tableau_de_bord) {
@@ -49,6 +53,9 @@ public class WelcomeActivity extends AppCompatActivity {
             case R.id.agenda:
                 fragmentClass = AgendaFragment.class;
                 break;
+            case R.id.patients:
+                fragmentClass = PatientsFragment.class;
+                break;
                 case R.id.cons:
                 fragmentClass = ConsultationFragment.class;
                 break;
@@ -57,10 +64,6 @@ public class WelcomeActivity extends AppCompatActivity {
                 break;
             case R.id.hj:
                 fragmentClass = HJFragment.class;
-                break;
-            case R.id.had:
-                fragmentClass = HADFragment.class;
-
                 break;
                 default:
                 fragmentClass=TabFragment.class;

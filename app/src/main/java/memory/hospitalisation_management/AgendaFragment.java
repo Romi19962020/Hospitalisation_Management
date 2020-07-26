@@ -12,6 +12,7 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  */
 public class AgendaFragment extends Fragment {
+    Calendrier_rdv calendrier_rdv;
 
 
     public AgendaFragment() {
@@ -23,7 +24,11 @@ public class AgendaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_agenda, container, false);
+        View view= inflater.inflate(R.layout.fragment_agenda, container, false);
+    calendrier_rdv=view.findViewById(R.id.calendrier_rdv);
+
+
+    return view;
     }
 
 }

@@ -32,16 +32,18 @@ public class HospitalisationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_hospitalisation, container, false);
+
         ViewPager viewPager=view.findViewById(R.id.pagesVp);
         TabLayout tabLayout=view.findViewById(R.id.slidingTL);
         fragmentManager= getChildFragmentManager();
         MyPagerAdapter adapter=new MyPagerAdapter(fragmentActivity,fragmentManager);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
+
         return view;
 
-
     }
+
 
     @Override
     public void onAttach(Context context) {

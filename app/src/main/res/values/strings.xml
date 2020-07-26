@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">management_hospitalisation</string>
+    <string name="app_name">management hospitalisation</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -17,6 +17,10 @@
         <item>SALLE 2</item>
         <item>SALLE 3</item>
         <item>SALLE 4</item>
+
+    </string-array>
+    <string-array name="salle_hj">
+        <item>SALLE 1</item>
 
     </string-array>
 

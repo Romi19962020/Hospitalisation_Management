@@ -23,5 +23,13 @@ public class DetailHospitalisation {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+   /* public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }*/
 }
 

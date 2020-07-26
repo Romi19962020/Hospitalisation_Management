@@ -36,6 +36,20 @@
             android:layout_marginLeft="24dp"
             android:layout_marginRight="10dp"></EditText>
         <EditText
+            android:id="@+id/ageI"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:digits="true"
+            android:drawablePadding="10dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="Age"
+            android:inputType="number"
+            android:background="@drawable/edit_bg"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="10dp"></EditText>
+        <EditText
             android:id="@+id/mailI"
             android:layout_width="match_parent"
             android:layout_height="60dp"

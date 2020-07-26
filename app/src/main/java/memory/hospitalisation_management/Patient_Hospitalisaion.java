@@ -1,6 +1,7 @@
 package memory.hospitalisation_management;
 
 import android.widget.Button;
+import android.widget.CheckBox;
 
 public class Patient_Hospitalisaion {
    private String nom;
@@ -22,4 +23,29 @@ public class Patient_Hospitalisaion {
     }
 
 
+}
+class LitHospitalisation{
+    private String lit;
+    CheckBox checkBox;
+
+    public LitHospitalisation(String lit, CheckBox checkBox) {
+        this.lit = lit;
+        this.checkBox = checkBox;
+    }
+
+    public String getLit() {
+        return lit;
+    }
+
+    public void setLit(String lit) {
+        this.lit = lit;
+    }
+
+    public CheckBox getCheckBox() {
+        return checkBox;
+    }
+
+    public void setCheckBox(CheckBox checkBox) {
+        this.checkBox = checkBox;
+    }
 }

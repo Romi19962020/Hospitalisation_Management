@@ -35,6 +35,35 @@
                    android:background="@drawable/edit_bg"
                    android:layout_marginLeft="24dp"
                    android:layout_marginRight="10dp"></EditText>
+
+               <EditText
+                   android:id="@+id/ageI"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:digits="true"
+                   android:drawablePadding="10dp"
+                   android:layout_marginStart="24dp"
+                   android:layout_marginEnd="10dp"
+                   android:layout_marginTop="10dp"
+                   android:hint="Age"
+                   android:inputType="number"
+                   android:background="@drawable/edit_bg"
+                   android:layout_marginLeft="24dp"
+                   android:layout_marginRight="10dp"></EditText>
+               <EditText
+                   android:id="@+id/mailI"
+                   android:layout_width="match_parent"
+                   android:layout_height="60dp"
+                   android:drawableStart="@drawable/mail"
+                   android:drawablePadding="10dp"
+                   android:layout_marginStart="24dp"
+                   android:layout_marginEnd="10dp"
+                   android:layout_marginTop="10dp"
+                   android:hint="Mail"
+                   android:drawableLeft="@drawable/mail"
+                   android:background="@drawable/edit_bg"
+                   android:layout_marginLeft="24dp"
+                   android:layout_marginRight="10dp"></EditText>
                <EditText
                    android:id="@+id/grade"
                    android:layout_width="match_parent"
@@ -47,20 +76,7 @@
                    android:layout_marginLeft="24dp"
                    android:layout_marginRight="10dp"></EditText>
 
-               <EditText
-                   android:id="@+id/mailI"
-                   android:layout_width="match_parent"
-                   android:layout_height="60dp"
-                   android:drawableStart="@drawable/mail"
-                   android:drawablePadding="10dp"
-                   android:layout_marginStart="24dp"
-                   android:layout_marginEnd="10dp"
-                   android:hint="E-mail"
-                   android:layout_marginTop="10dp"
-                   android:drawableLeft="@drawable/mail"
-                   android:background="@drawable/edit_bg"
-                   android:layout_marginLeft="24dp"
-                   android:layout_marginRight="10dp"></EditText>
+
                <EditText
                    android:id="@+id/userI"
                    android:layout_width="match_parent"

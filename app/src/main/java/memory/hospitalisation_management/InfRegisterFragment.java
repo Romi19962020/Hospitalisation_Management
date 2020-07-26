@@ -1,6 +1,7 @@
 package memory.hospitalisation_management;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +11,25 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import java.text.DateFormat;
+
+import static memory.hospitalisation_management.Constantns.SERVER_URL;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class InfRegisterFragment extends Fragment {
 
+EditText nom,prenom,ageI,mailI,userI,passI,num;
+    String valueAge;
+    int intVal;
 
     public InfRegisterFragment() {
         // Required empty public constructor
@@ -27,12 +41,18 @@ public class InfRegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_infregister, container, false);
-        final EditText nom= view.findViewById(R.id.nom);
-        final EditText prenom= view.findViewById(R.id.prenom);
-        final EditText mailI= view.findViewById(R.id.mailI);
-        final EditText userI= view.findViewById(R.id.userI);
-        final EditText passI= view.findViewById(R.id.passI);
-        final EditText num= view.findViewById(R.id.num);
+        nom= view.findViewById(R.id.nom);
+        prenom= view.findViewById(R.id.prenom);
+        ageI=view.findViewById(R.id.ageI);
+        valueAge=ageI.getText().toString();
+        intVal=0;
+        if(!"".equals(valueAge)){
+            intVal=Integer.parseInt(valueAge);
+        }
+        mailI= view.findViewById(R.id.mailI);
+        userI= view.findViewById(R.id.userI);
+        passI= view.findViewById(R.id.passI);
+        num= view.findViewById(R.id.num);
         final View button = view.findViewById(R.id.insc);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,8 +103,7 @@ public class InfRegisterFragment extends Fragment {
                                                 Toast.makeText(getActivity(),"veuillez entrer un mot de passe contenant au moins 6 caractères",Toast.LENGTH_SHORT).show();
 
                                             } else {
-                                                startActivity(new Intent(getContext(), MainActivity.class));
-                                                Toast.makeText(getActivity(),"votre compte a été créer avec succés",Toast.LENGTH_SHORT).show();
+                                                AddNurse();
 
                                             }
                                             // Toast toast=Toast.makeText(this.onClick(),"email ou mdps incorrects",Toast.LENGTH_SHORT);
@@ -100,5 +119,40 @@ public class InfRegisterFragment extends Fragment {
         });
 return view;
     }
+    public void AddNurse() {
+        DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
+
+
+        final Nurse nurse = new Nurse((long) getId(), nom.getText().toString(), prenom.getText().toString(), userI.getText().toString(), passI.getText().toString(), intVal, num.getText().toString(), mailI.getText().toString());
+        Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+        JsonObject data = gson.toJsonTree(nurse).getAsJsonObject();
+        final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Wait please ...");
+        progressDialog.setCancelable(false);
+        Ion.with(getActivity())
+                .load("POST", SERVER_URL + "/Nurse")
+                .setJsonObjectBody(data)
+                .as(Boolean.class)
+                .setCallback(new FutureCallback<Boolean>() {
+                    @Override
+                    public void onCompleted(Exception e, Boolean result) {
+                        if (result == null) {
+                            Toast.makeText(getActivity(), "error" +e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            startActivity(new Intent(getContext(), MainActivity.class));
+                            Toast.makeText(getActivity(),"votre compte a été créer avec succés",Toast.LENGTH_SHORT).show();
+
+                            //startActivity(new Intent(getActivity(), LoginActivity.class));
+                            // do stuff with the result or error
+                        }
+
+
+                    }
+                });
+
+
+    }
+
 
 }

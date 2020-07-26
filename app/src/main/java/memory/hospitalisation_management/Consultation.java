@@ -46,4 +46,6 @@ public class Consultation {
     public void setDate(Date date) {
         this.date = date;
     }
+
+
 }

@@ -6,7 +6,10 @@ public class Patient  {
     private long id;
     private String firstName,lastName;
     private int sexe;
+    private String typehosp;
     private List<Consultation> consultations;
+    private List<Hospitalisation> hospitalisations;
+
 
     public Patient(long id, String firstName, String lastName, int sexe) {
         this.id = id;
@@ -31,6 +34,14 @@ public class Patient  {
         this.consultations = consultations;
     }
 
+    public List<Hospitalisation> getHospitalisations() {
+        return hospitalisations;
+    }
+
+    public void setHospitalisations(List<Hospitalisation> hospitalisations) {
+        this.hospitalisations = hospitalisations;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -53,5 +64,13 @@ public class Patient  {
 
     public void setSexe(int sexe) {
         this.sexe = sexe;
+    }
+
+    public String getTypehosp() {
+        return typehosp;
+    }
+
+    public void setTypehosp(String typehosp) {
+        this.typehosp = typehosp;
     }
 }

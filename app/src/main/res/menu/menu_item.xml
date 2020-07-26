@@ -10,6 +10,10 @@
         android:title="Liste des rendez-vous"
         android:icon="@drawable/baseline_today_black_18dp"/>
     <item
+        android:id="@+id/patients"
+        android:title="Patients"
+        android:icon="@drawable/ic_group_black_24dp"/>
+    <item
         android:id="@+id/cons"
         android:title="Consultation"
         android:icon="@drawable/outline_local_hospital_black_18dp"/>
@@ -22,10 +26,7 @@
         android:id="@+id/hj"
         android:title="Hopital de jour"
         android:icon="@drawable/outline_local_convenience_store_black_18dp"/>
-    <item
-        android:id="@+id/had"
-        android:title="Hospitalisation à domicile"
-        android:icon="@drawable/outline_home_work_black_18dp"/>
+
     <item
         android:id="@+id/dec"
         android:title="Se déconnecter"
