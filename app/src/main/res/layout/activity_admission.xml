@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdmissionActivity">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Patient "
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/colorW"/>
+
+    <RelativeLayout
+        android:layout_width="340dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/laypatient"
+        android:background="@drawable/box">
+
+        <EditText
+            android:id="@+id/nom"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_bg"
+            android:layout_marginStart="10dp"
+            android:hint=" Nom"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorW"
+            android:inputType="text"
+            android:layout_marginLeft="10dp" />
+
+        <EditText
+            android:id="@+id/prenom"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/nom"
+            android:hint=" Prénom"
+            android:background="@drawable/edit_bg"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorW"
+            android:inputType="text"
+            android:layout_marginLeft="10dp" />
+
+        <EditText
+            android:id="@+id/age"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/prenom"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint=" Age"
+            android:textColor="@color/colorW"
+            android:inputType="number"/>
+
+        <AutoCompleteTextView
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/age"
+            android:hint=" Motif d'hospitalisation"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:id="@+id/motif"
+            android:layout_marginLeft="10dp" />
+
+        <EditText
+            android:id="@+id/numsalle"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/motif"
+            android:hint=" Num salle"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorW"
+            android:layout_marginLeft="10dp"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/numlit"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/numsalle"
+            android:background="@drawable/edit_bg"
+            android:hint=" Num lit"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorW"
+            android:inputType="text"/>
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/numlit"
+            android:hint="Date d'hospitalisation"
+            android:textColor="@color/colorW"
+            android:inputType="datetime"/>
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Malade orienté par "
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/med"
+        android:layout_below="@id/laypatient"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorW"/>
+
+        <RelativeLayout
+            android:id="@+id/laymed"
+            android:layout_width="340dp"
+            android:layout_height="130dp"
+            android:layout_below="@+id/med"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/box">
+
+            <EditText
+                android:id="@+id/nommed"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_bg"
+                android:hint=" Nom et prénom du médecin"
+                android:inputType="text"
+                android:textColor="@color/colorW" />
+
+            <EditText
+                android:id="@+id/grade"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/nommed"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_bg"
+                android:hint=" Grade"
+                android:inputType="text"
+                android:textColor="@color/colorW" />
+
+            <EditText
+                android:id="@+id/service"
+                android:layout_width="300dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/grade"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/edit_bg"
+                android:hint=" Service"
+                android:inputType="text"
+                android:textColor="@color/colorW" />
+
+        </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Garde malade "
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/gardemalade"
+        android:layout_below="@id/laymed"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorW"/>
+
+    <RelativeLayout
+        android:layout_width="340dp"
+        android:layout_height="180dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/gardemalade"
+        android:background="@drawable/box">
+        <EditText
+            android:id="@+id/nomgarde"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint=" Nom et prénom du garde malade"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorW"
+            android:inputType="text"/>
+
+        <EditText
+            android:id="@+id/numtelgarde"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/nomgarde"
+            android:background="@drawable/edit_bg"
+            android:hint=" Num de tél"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorW"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/typepiece"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/numtelgarde"
+            android:background="@drawable/edit_bg"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:hint=" Type de piéce d'identité présentée"
+            android:textColor="@color/colorW"
+            android:inputType="text"/>
+        <EditText
+            android:id="@+id/numpiece"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/typepiece"
+            android:background="@drawable/edit_bg"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Num piece"
+            android:textColor="@color/colorW"
+            android:inputType="number"/>
+
+
+    </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>
