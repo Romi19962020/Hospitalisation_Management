@@ -29,9 +29,9 @@ public class WelcomeActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setupDrawerContent(navi);
 
-        PatientsFragment patientsFragment=new PatientsFragment();
+       /* PatientsFragment patientsFragment=new PatientsFragment();
         FragmentManager fm= getSupportFragmentManager();
-        fm.beginTransaction().add(R.id.contentFl,patientsFragment).commit();
+        fm.beginTransaction().add(R.id.contentFl,patientsFragment).commit();*/
 
     }
 
